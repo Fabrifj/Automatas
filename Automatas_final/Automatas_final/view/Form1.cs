@@ -15,6 +15,7 @@ namespace Automatas_final
         Expresiones expresiones = new Expresiones();
         Gramatica gramatica = new  Gramatica();
         Conversion conversion = new Conversion();
+
         public Form1()
         {
             InitializeComponent();
