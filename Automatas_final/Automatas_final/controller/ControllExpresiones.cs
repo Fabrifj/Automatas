@@ -19,6 +19,10 @@ namespace Automatas_final.controller
         int memoriaU;
         int finalA;
         int finalB;
+        //index 
+        int indexU;
+        int indexA;
+        //int indexB; Creo que no es necesario 
         
         public ControllExpresiones()
         {
