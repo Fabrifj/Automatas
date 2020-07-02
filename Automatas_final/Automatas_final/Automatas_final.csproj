@@ -67,12 +67,6 @@
     <Compile Include="view\Conversion.Designer.cs">
       <DependentUpon>Conversion.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\Entrada.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\Entrada.Designer.cs">
-      <DependentUpon>Entrada.cs</DependentUpon>
-    </Compile>
     <Compile Include="view\Expresiones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,18 +87,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="view\CaminoAFD.resx">
-      <DependentUpon>CaminoAFD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\CaminoAFN.resx">
-      <DependentUpon>CaminoAFN.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\Conversion.resx">
-      <DependentUpon>Conversion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\Entrada.resx">
-      <DependentUpon>Entrada.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="view\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,8 +113,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\fondo.jpg" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
