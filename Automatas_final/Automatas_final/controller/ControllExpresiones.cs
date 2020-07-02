@@ -16,8 +16,8 @@ namespace Automatas_final.controller
         //memorias 
         string memoriaS;
         int memoriaI;
-        int memoriaU;
-        int finalA;
+        int[] memoriaU = new int[10];
+        int[] finalA = new int[10];
         int finalB;
         //index 
         int indexU;
@@ -27,6 +27,8 @@ namespace Automatas_final.controller
         public ControllExpresiones()
         {
             row = 0;
+            indexU = 0;
+            indexA = 0;
         }
 
         public void Crear_tabla(string exprecion, List<string> lista)
@@ -94,37 +96,50 @@ namespace Automatas_final.controller
                 else if (s == Convert.ToChar("("))
                 {   
                     //agregamos lambda
-                    Data.Rows[row]["λ"] = string.Format("{0} _ {1}",Data.Rows[row]["λ"], row + 1);
+                    Data.Rows[row]["λ"] = string.Format("{0}  {1}",Data.Rows[row]["λ"], row + 1);
                     row++;
                     Data.Rows.Add(fila);
                     // agregar memoria de division
-                    memoriaU = row;
+                    memoriaU[indexU] = row;
+                    Console.WriteLine("Union "+row);
+                    indexU++;
+                    //crear estado
                     Data.Rows[row]["λ"] = Convert.ToString(row + 1);
                     row++;
                     Data.Rows.Add(fila);
                 }
                 else if (s == Convert.ToChar("U"))
                 {
-                    finalA = memoriaI;
-                    Data.Rows[memoriaU]["λ"]  = string.Format(" {0} - {1} ", memoriaU+1 , row+1);
+                    finalA[indexA] = memoriaI;
+                    Console.WriteLine("memoria A "+memoriaI);
+                    indexA++;
+
+                    Data.Rows[memoriaU[indexU-1]]["λ"]  = string.Format(" {0} - {1} ", memoriaU[indexU-1]+1 , row+1);
                     row++;
                     Data.Rows.Add(fila);
 
                 }
                 else if (s == Convert.ToChar(")"))
                 {
-                    finalB = memoriaI;
-                    memoriaS = ")";
+                    finalB = row-1;
+                    
                    
                     row++;
                     Data.Rows.Add(fila);
                     
-                    // ambos finales se unen 
-                    Data.Rows[finalA + 1]["λ"] = row;
-                    Data.Rows[finalB + 1]["λ"] = row;
-                    
+                    Console.WriteLine("igualingo");
+                    Console.WriteLine(finalA[indexA-1] + 1);
+                    Console.WriteLine(row - 1);
+                     // ambos finales se unen 
+                    Data.Rows[finalA[indexA-1] + 1]["λ"] = row;
+                    Data.Rows[row - 1]["λ"] = row;
+                    indexA--;
+                    indexU--;
                     Data.Rows.Add(fila);
+
                     
+                    memoriaS = ")";
+
                 }
             }
         }
